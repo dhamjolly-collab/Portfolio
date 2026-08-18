@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Havish — Web Developer portfolio. Modern, responsive websites and web experiences." />
+  <title>Havish — Web Developer</title>
+  <style>
+    :root{
+      --bg:#08090c;
+      --panel:#101217;
+      --panel2:#151821;
+      --text:#f5f7fb;
+      --muted:#a7adbb;
+      --line:#252a35;
+      --accent:#ffffff;
+      --max:1120px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at 80% 0%, rgba(255,255,255,.08), transparent 28%),
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,.04), transparent 25%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(92%,var(--max));margin:auto}
+    nav{
+      position:sticky;top:0;z-index:20;
+      backdrop-filter:blur(16px);
+      background:rgba(8,9,12,.78);
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
+    .navin{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:20px;font-weight:800;letter-spacing:-.04em}
+    .logo span{color:#9ca3af}
+    .navlinks{display:flex;gap:26px;color:#b9bec9;font-size:14px}
+    .navlinks a:hover{color:#fff}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 18px;border:1px solid #3a3f4b;border-radius:12px;
+      font-weight:700;font-size:14px;transition:.2s;
+    }
+    .btn:hover{transform:translateY(-2px);border-color:#fff}
+    .btn.primary{background:#fff;color:#08090c;border-color:#fff}
+    .hero{padding:110px 0 90px}
+    .eyebrow{
+      display:inline-flex;padding:7px 11px;border:1px solid var(--line);
+      background:rgba(255,255,255,.03);border-radius:999px;
+      color:#cbd0da;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase
+    }
+    h1{
+      margin-top:22px;max-width:900px;font-size:clamp(48px,8vw,92px);
+      line-height:.96;letter-spacing:-.065em;
+    }
+    .hero p{max-width:680px;margin:26px 0;color:var(--muted);font-size:19px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .stats{
+      margin-top:70px;display:grid;grid-template-columns:repeat(3,1fr);
+      border-top:1px solid var(--line);border-bottom:1px solid var(--line)
+    }
+    .stat{padding:25px 20px;border-right:1px solid var(--line)}
+    .stat:last-child{border-right:0}
+    .stat strong{display:block;font-size:25px}.stat span{color:var(--muted);font-size:13px}
+    section{padding:90px 0}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:32px}
+    .section-head h2{font-size:clamp(32px,5vw,52px);letter-spacing:-.05em}
+    .section-head p{max-width:460px;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+      border:1px solid var(--line);border-radius:20px;padding:26px;
+      transition:.25s;overflow:hidden;
+    }
+    .card:hover{transform:translateY(-5px);border-color:#444a57}
+    .number{font-size:12px;color:#7e8592;letter-spacing:.12em}
+    .card h3{font-size:23px;margin:35px 0 10px;letter-spacing:-.03em}
+    .card p{color:var(--muted);font-size:14px}
+    .tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:20px}
+    .tag{border:1px solid var(--line);border-radius:999px;padding:5px 9px;font-size:11px;color:#c7ccd5}
+    .project{
+      min-height:330px;display:flex;flex-direction:column;justify-content:space-between;
+    }
+    .project .visual{
+      height:120px;border:1px solid var(--line);border-radius:14px;
+      background:
+        linear-gradient(135deg,rgba(255,255,255,.12),transparent),
+        repeating-linear-gradient(90deg,transparent 0 24px,rgba(255,255,255,.035) 25px 26px);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:800;font-size:24px;letter-spacing:-.04em;
+    }
+    .services{grid-template-columns:repeat(2,1fr)}
+    .service{display:flex;gap:18px}
+    .icon{
+      min-width:44px;height:44px;border:1px solid var(--line);border-radius:12px;
+      display:grid;place-items:center;font-weight:800
+    }
+    .service h3{margin:0 0 6px;font-size:18px}.service p{font-size:13px}
+    .process{counter-reset:step}
+    .process .card{position:relative}
+    .process .card:before{
+      counter-increment:step;content:"0" counter(step);
+      color:#6f7580;font-size:12px;font-weight:800;
+    }
+    .cta{
+      padding:60px;border-radius:28px;border:1px solid var(--line);
+      background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
+      text-align:center;
+    }
+    .cta h2{font-size:clamp(34px,5vw,58px);letter-spacing:-.055em}
+    .cta p{color:var(--muted);max-width:560px;margin:14px auto 25px}
+    footer{border-top:1px solid var(--line);padding:25px 0;color:#777e8b;font-size:12px}
+    @media(max-width:800px){
+      .navlinks{display:none}
+      .hero{padding-top:75px}
+      .stats,.grid,.services{grid-template-columns:1fr}
+      .stat{border-right:0;border-bottom:1px solid var(--line)}
+      .stat:last-child{border-bottom:0}
+      .section-head{display:block}.section-head p{margin-top:12px}
+      .cta{padding:38px 22px}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap navin">
+      <a class="logo" href="#">HAVISH<span>.DEV</span></a>
+      <div class="navlinks">
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="btn" href="#contact">Let's work</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <span class="eyebrow">Web Developer • Digital Experiences</span>
+        <h1>Websites that look sharp, feel fast, and work.</h1>
+        <p>
+          I build modern, responsive websites and web experiences with a strong focus
+          on clean interfaces, smooth interactions, mobile usability, and maintainable code.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="#work">View selected work</a>
+          <a class="btn" href="#contact">Start a project →</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><strong>Responsive</strong><span>Designed for phone, tablet & desktop</span></div>
+          <div class="stat"><strong>Modern UI</strong><span>Clean layouts with strong visual hierarchy</span></div>
+          <div class="stat"><strong>Built to ship</strong><span>Focused on practical, usable experiences</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Selected work</h2>
+          <p>A few project concepts and builds that demonstrate product thinking, interface design, and web development.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card project">
+            <div>
+              <div class="visual">CRICKET / LIVE</div>
+              <div class="number">01 — WEB APP</div>
+              <h3>Cricket Score Tracker</h3>
+              <p>A focused scoring experience for recording runs, players, and match information quickly from a phone.</p>
+              <div class="tags"><span class="tag">UI/UX</span><span class="tag">Web App</span><span class="tag">Responsive</span></div>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div>
+              <div class="visual">CHAT / CONNECT</div>
+              <div class="number">02 — WEB APP</div>
+              <h3>Chat Experience</h3>
+              <p>A messaging-focused interface designed around conversations, notifications, clear states, and mobile-first usability.</p>
+              <div class="tags"><span class="tag">Messaging UI</span><span class="tag">Mobile First</span><span class="tag">Product Design</span></div>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div>
+              <div class="visual">SHOP / ONLINE</div>
+              <div class="number">03 — BUSINESS WEBSITE</div>
+              <h3>Havish Shop</h3>
+              <p>A business-style website concept built to present products clearly and create a straightforward customer journey.</p>
+              <div class="tags"><span class="tag">Business</span><span class="tag">Landing Page</span><span class="tag">Responsive</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>What I build</h2>
+          <p>From a high-converting landing page to a complete web experience, the goal is simple: make the website useful and memorable.</p>
+        </div>
+        <div class="grid services">
+          <div class="card service"><div class="icon">01</div><div><h3>Business Websites</h3><p>Professional websites for businesses that need a strong online presence and clear calls to action.</p></div></div>
+          <div class="card service"><div class="icon">02</div><div><h3>Landing Pages</h3><p>Focused pages designed around one clear goal: enquiries, leads, sign-ups, or sales.</p></div></div>
+          <div class="card service"><div class="icon">03</div><div><h3>Web Apps</h3><p>Interactive browser-based products with practical interfaces and responsive layouts.</p></div></div>
+          <div class="card service"><div class="icon">04</div><div><h3>UI & Frontend</h3><p>Clean frontend implementation with attention to spacing, typography, states, and mobile experience.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>How I work</h2>
+          <p>A clear process keeps the project moving and makes the final result easier to review.</p>
+        </div>
+        <div class="grid process">
+          <div class="card"><h3>Understand</h3><p>Clarify the business, audience, goals, content, and essential features before building.</p></div>
+          <div class="card"><h3>Design</h3><p>Turn the requirements into a clean visual direction with a strong hierarchy and responsive layout.</p></div>
+          <div class="card"><h3>Build & refine</h3><p>Develop the experience, test it on smaller screens, fix details, and polish the final interaction.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="cta">
+          <span class="eyebrow">Have a project?</span>
+          <h2>Let's build something people remember.</h2>
+          <p>
+            Tell me what you are building, what the website needs to achieve, and what you already have.
+            I can turn the idea into a clean, modern web experience.
+          </p>
+          <!-- Replace the email below with your real email address. -->
+          <a class="btn primary" href="mailto:YOUR-EMAIL@example.com">Email me →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2026 Havish. Web Developer. Built with attention to detail.</div>
+  </footer>
+</body>
+</html>
